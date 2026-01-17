@@ -1,4 +1,32 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+
+export type TaskStatus = 'todo' | 'in-progress' | 'done';
+
+
+export interface Task{
+  id: number;
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  createdAt: Date;
+}
 
 @Injectable()
-export class TasksService {}
+export class TasksService{
+  private tasks: Task[] = [];
+  private idCounter = 1;
+
+  //create a tasks
+    create(title: string, description?: string): Task {
+    const task: Task = {
+      id: this.idCounter++,
+      title,
+      description,
+      status: 'todo',
+      createdAt: new Date(),
+    };
+
+    this.tasks.push(task);
+    return task;
+  }
+}
