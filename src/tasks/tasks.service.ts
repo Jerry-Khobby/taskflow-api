@@ -29,4 +29,9 @@ export class TasksService{
     this.tasks.push(task);
     return task;
   }
+
+  //get all task 
+  findAll():Task[]{
+    return this.tasks;
+  }
 }

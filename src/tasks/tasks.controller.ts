@@ -16,4 +16,9 @@ export class TasksController{
   create(@Body() body: { title: string; description?: string }) {
     return this.tasksService.create(body.title, body.description);
   }
+
+  @Get()
+  findAll(){
+    return this.tasksService.findAll();
+  }
 }
