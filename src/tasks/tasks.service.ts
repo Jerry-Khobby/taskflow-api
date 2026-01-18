@@ -34,4 +34,12 @@ export class TasksService{
   findAll():Task[]{
     return this.tasks;
   }
+
+    updateStatus(id: number, status: TaskStatus): Task {
+    const task = this.tasks.find(t => t.id === id);
+    if (!task) throw new NotFoundException('Task not found');
+
+    task.status = status;
+    return task;
+  }
 }

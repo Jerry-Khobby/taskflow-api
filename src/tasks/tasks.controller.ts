@@ -21,4 +21,12 @@ export class TasksController{
   findAll(){
     return this.tasksService.findAll();
   }
+
+  @Patch(':id')
+  updateStatus(
+    @Param('id') id: string,
+    @Body() body: { status: TaskStatus },
+  ) {
+    return this.tasksService.updateStatus(Number(id), body.status);
+  }
 }
