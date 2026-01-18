@@ -42,4 +42,11 @@ export class TasksService{
     task.status = status;
     return task;
   }
+
+    delete(id: number): void {
+    const index = this.tasks.findIndex(t => t.id === id);
+    if (index === -1) throw new NotFoundException('Task not found');
+
+    this.tasks.splice(index, 1);
+  }
 }
