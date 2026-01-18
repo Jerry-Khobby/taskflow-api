@@ -9,6 +9,7 @@ describe('TasksController', () => {
     create: jest.fn(),
     findAll: jest.fn(),
     updateStatus: jest.fn(),
+    delete:jest.fn(),
   };
 
   beforeEach(async () => {
@@ -29,6 +30,7 @@ describe('TasksController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+  //update task
   it('should update task status', () => {
     const updatedTask = {
       id: 1,
@@ -37,6 +39,8 @@ describe('TasksController', () => {
       createdAt: new Date(),
     };
 
+    
+
     mockTasksService.updateStatus.mockReturnValue(updatedTask);
 
     const result = controller.updateStatus('1', { status: 'done' });
@@ -44,4 +48,15 @@ describe('TasksController', () => {
     expect(mockTasksService.updateStatus).toHaveBeenCalledWith(1, 'done');
     expect(result).toEqual(updatedTask);
   });
+
+//delete tasks
+  it('should delete a task', () => {
+  mockTasksService.delete.mockReturnValue(undefined);
+
+  const result = controller.remove('1');
+
+  expect(mockTasksService.delete).toHaveBeenCalledWith(1);
+  expect(result).toEqual({ message: 'Task deleted' });
+});
+
 });
