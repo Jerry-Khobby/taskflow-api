@@ -1,5 +1,5 @@
+import { NotFoundException } from '@nestjs/common';
 import { TasksService } from './tasks.service';
-
 
 describe('TasksService', () => {
   let service: TasksService;
@@ -18,5 +18,19 @@ describe('TasksService', () => {
     service.create('Task 1');
     service.create('Task 2');
     expect(service.findAll().length).toBe(2);
+  });
+
+  it('should update task status', () => {
+    const task = service.create('Test Task');
+
+    const updatedTask = service.updateStatus(task.id, 'in-progress');
+
+    expect(updatedTask.status).toBe('in-progress');
+  });
+
+  it('should throw error if task does not exist', () => {
+    expect(() => {
+      service.updateStatus(999, 'done');
+    }).toThrow(NotFoundException);
   });
 });

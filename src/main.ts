@@ -4,12 +4,6 @@ import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const logger = new Logger('Bootstrap');
-
-  app.use((req, res, next) => {
-    logger.log(`${req.method} ${req.url}`);
-    next();
-  });
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
