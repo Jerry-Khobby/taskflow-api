@@ -1,18 +1,22 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { TasksService } from './tasks.service';
+
 
 describe('TasksService', () => {
   let service: TasksService;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [TasksService],
-    }).compile();
-
-    service = module.get<TasksService>(TasksService);
+  beforeEach(() => {
+    service = new TasksService();
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('should create a task', () => {
+    const task = service.create('Test Task');
+    expect(task.title).toBe('Test Task');
+    expect(task.status).toBe('todo');
+  });
+
+  it('should return all tasks', () => {
+    service.create('Task 1');
+    service.create('Task 2');
+    expect(service.findAll().length).toBe(2);
   });
 });
