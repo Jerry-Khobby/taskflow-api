@@ -33,6 +33,7 @@ describe('TasksController', () => {
   //update task
   it('should update task status', () => {
     const updatedTask = {
+      id: 1,
       title: 'Test Task',
       status: 'done',
       createdAt: new Date(),
