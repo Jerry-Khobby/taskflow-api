@@ -25,6 +25,8 @@ The API allows users to create and retrieve tasks. Automated testing and CI/CD a
 
 
 ## Screenshots 
-[Screenshot of POST /tasks](./screenshots/post.png)
 
-[Screenshot of GET /tasks](./screenshots/get.png)
+![Screenshot of POST /tasks](./screenshots/post.png)
+
+![Screenshot of GET /tasks](./screenshots/get.png)
+

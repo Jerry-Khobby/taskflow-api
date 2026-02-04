@@ -26,8 +26,8 @@ The API now supports full task lifecycle management and basic monitoring, improv
 
 
 ## Screenshots
-[Screen shot of PATCH /tasks/:id](./screenshots/patch.png)
+![Screen shot of PATCH /tasks/:id](./screenshots/patch.png)
 
-[Screen shot of DELETE /tasks/:id](./screenshots/delete.png)
+![Screen shot of DELETE /tasks/:id](./screenshots/delete.png)
 
-[Screen shot of GET /health endpoint](./screenshots/health.png)
+![Screen shot of GET /health endpoint](./screenshots/health.png)
