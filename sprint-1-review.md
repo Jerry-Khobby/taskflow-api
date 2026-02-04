@@ -22,3 +22,9 @@ Deliver the first usable version of the TaskFlow API and establish a CI pipeline
 
 ## Outcome
 The API allows users to create and retrieve tasks. Automated testing and CI/CD are in place, ensuring code quality and reliability.
+
+
+## Screenshots 
+[Screenshot of POST /tasks](./screenshots/post.png)
+
+[Screenshot of GET /tasks](./screenshots/get.png)
